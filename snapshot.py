@@ -11,7 +11,7 @@ from snapshots.py.md_output import add_file_blocks
 AI_MODE_INTRO = "Hi, please consider this markdown file as the lastest iteration of my application. The file structure and code contained within should be considered the most updated version of all files and file structures. Once you read this markdown summary, please summarize anything notable that is new to you compared to our past work together."
 SNAPSHOTS_DIR = "./snapshots/"
 PY_SNAPSHOTS_DIR = os.path.join(SNAPSHOTS_DIR, "py")
-IGNORE_PATTERNS = ["package", ".idea","node_modules",".git","pycache"]
+IGNORE_PATTERNS = ["package", ".idea","node_modules",".git","pycache",'snapshot-']
 
 def generate_md_file():
     """
@@ -61,8 +61,6 @@ def generate_md_file():
     # Copy the markdown file to the clipboard
     pyperclip.copy(md_path)
 
-    # Ask the user if they are ready to move onto the next file
-    input("Finished processing file. Contents copied to clipboard. Press Enter to continue...")
 
 if __name__ == "__main__":
     generate_md_file()

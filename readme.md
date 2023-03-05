@@ -6,7 +6,11 @@ Snapshots for AI is a tool that allows you to quickly generate machine/AI-readab
 
 To use Snapshots for AI, you'll need to have Python installed on your machine. If you don't have Python installed, you can download it from the [official Python website](https://www.python.org/downloads/).
 
-Once you have Python installed, you can download the latest version of Snapshots for AI by cloning this repository or downloading the ZIP file.
+After installing Python, you need to install the required dependencies by running the following command in the terminal:
+
+`pip install -r requirements.txt`
+
+This will install all the required packages listed in the `requirements.txt` file.
 
 ## Usage
 

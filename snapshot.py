@@ -9,9 +9,9 @@ from snapshots.py.hierarchy import print_hierarchy
 from snapshots.py.md_output import add_file_blocks
 
 AI_MODE_INTRO = "Hi, please consider this markdown file as the lastest iteration of my application. The file structure and code contained within should be considered the most updated version of all files and file structures. Once you read this markdown summary, please summarize anything notable that is new to you compared to our past work together."
-SNAPSHOTS_DIR = "./snapshots/"
+SNAPSHOTS_DIR = "./snapshots/captures/"
 PY_SNAPSHOTS_DIR = os.path.join(SNAPSHOTS_DIR, "py")
-IGNORE_PATTERNS = ["package", ".idea","node_modules",".git","pycache",'snapshot-']
+IGNORE_PATTERNS = ["package", ".idea","node_modules",".git","pycache",'captures','requirements']
 
 def generate_md_file():
     """
@@ -60,6 +60,8 @@ def generate_md_file():
 
     # Copy the markdown file to the clipboard
     pyperclip.copy(md_path)
+
+    print("Snapshot generated.")
 
 
 if __name__ == "__main__":

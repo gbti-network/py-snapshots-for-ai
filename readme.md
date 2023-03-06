@@ -1,12 +1,12 @@
-# Snapshots for AI
+# Snapshots.py for AI
 
-Snapshots for AI is a tool that allows you to quickly generate machine/AI-readable documentation that shows your project's current folder and file structure, as well as the updated contents of all the files, all inside a markdown file.
+Snapshots.py is a tool that allows you to quickly generate machine/AI-readable documentation that shows your project's current folder and file structure, as well as the updated contents of all the files, all inside a markdown file.
 
 ![Snapshots Quick Demonstration](https://gbti.io/wp-content/uploads/2023/03/snapshots_for_ai_gif.gif)
 
 ## Installation
 
-To use Snapshots for AI, you'll need to have Python installed on your machine. If you don't have Python installed, you can download it from the [official Python website](https://www.python.org/downloads/).
+To use Snapshots.py, you'll need to have Python installed on your machine. If you don't have Python installed, you can download it from the [official Python website](https://www.python.org/downloads/).
 
 After installing Python, you need to install the required dependencies by running the following command in the terminal:
 
@@ -26,7 +26,7 @@ To preview a snapshot, you can navigate to the `snapshots/captures` folder in th
 
 ## Features
 
-Snapshots for AI includes the following features:
+Snapshots.py includes the following features:
 
 * Auto-detect sensitive keys in JSON files and obfuscate them, so your data is better protected from AI.
 * Customizable pattern-based ignore system that helps you prevent including unwanted information in your markdown reports.

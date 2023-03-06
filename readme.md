@@ -2,6 +2,8 @@
 
 Snapshots for AI is a tool that allows you to quickly generate machine/AI-readable documentation that shows your project's current folder and file structure, as well as the updated contents of all the files, all inside a markdown file.
 
+![Snapshots Quick Demonstration](https://gbti.io/wp-content/uploads/2023/03/snapshots_for_ai_gif.gif)
+
 ## Installation
 
 To use Snapshots for AI, you'll need to have Python installed on your machine. If you don't have Python installed, you can download it from the [official Python website](https://www.python.org/downloads/).

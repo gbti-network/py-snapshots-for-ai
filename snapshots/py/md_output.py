@@ -26,8 +26,8 @@ def add_file_blocks(hierarchy, md_file, base_dir):
             for file_item in item[folder_name]:
                 if isinstance(file_item, str):
                     # Perform the action on the file
-                    file_path = os.path.join(base_dir, folder_name, file_item)
-                    add_file_to_md(file_path, md_file)
+                    #file_path = os.path.join(base_dir, folder_name, file_item)
+                    add_file_to_md(file_item, md_file)
                 elif isinstance(file_item, dict):
                     # Recursively loop through subfolders
                     add_file_blocks([file_item], md_file, os.path.join(base_dir, folder_name))
@@ -39,30 +39,33 @@ def add_file_blocks(hierarchy, md_file, base_dir):
 
 def add_file_to_md(file_path, md_file):
     """
-    Given a file path and a markdown file object, this function reads the contents of the file, obfuscates sensitive
-    data in JSON files, and writes the file contents to the markdown file object in a code block.
+    Given a file path and an open markdown file object, this function reads the contents of the file
+    and writes it to the markdown file as a code block with syntax highlighting based on the file extension.
+
     :param file_path: The path to the file to add to the markdown file
-    :param md_file: The markdown file object to add the file to
+    :param md_file: An open markdown file object to write to
     """
 
-    filename = os.path.basename(file_path)
-    file_path_with_parent = os.path.join('..', file_path)
+    # Get the file or folder name without the path
+    name = os.path.basename(file_path)
 
-    try:
-        with open(file_path, "r", encoding="utf-8") as f:
-            contents = f.read()
-    except UnicodeDecodeError:
-        print(f"Skipping file {file_path} because it is not UTF-8 encoded.")
+    # Check if the file or folder exists
+    if not os.path.exists(file_path):
+        print(f"File or folder not found: {file_path}")
         return
 
-    file = {"filepath": file_path, "contents": contents}
+    # Write the file or folder name as a markdown heading
+    md_file.write(f"\n## {file_path}\n")
 
-    # Obfuscate sensitive data if necessary and if the file is not an example file
-    if OBFUSCATE_SENSITIVE_DATA and filename.endswith(".json") and "-example" not in filename:
-        file['contents'] = obfuscate_sensitive_data(json.loads(file['contents']))
+    # If the item is a folder, write the folder contents recursively
+    if os.path.isdir(file_path):
+        for item in os.listdir(file_path):
+            add_file_to_md(os.path.join(file_path, item), md_file)
+    # If the item is a file, write the file contents as a code block
+    elif os.path.isfile(file_path):
+        with open(file_path, "r", encoding="utf-8") as f:
+            contents = f.read()
+            md_file.write("```\n")
+            md_file.write(contents)
+            md_file.write("\n```\n")
 
-    # Write the file blocks to the markdown file
-    md_file.write(f"## {file['filepath']}\n")
-    md_file.write(f"```\n")
-    md_file.write(f"{file['contents']}\n")
-    md_file.write(f"```\n\n")

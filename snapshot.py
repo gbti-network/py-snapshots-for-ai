@@ -8,10 +8,10 @@ from snapshots.py.hierarchy import filter_hierarchy
 from snapshots.py.hierarchy import print_hierarchy
 from snapshots.py.md_output import add_file_blocks
 
-AI_MODE_INTRO = "Hi, please consider this markdown file as the lastest iteration of my application. The file structure and code contained within should be considered the most updated version of all files and file structures. Once you read this markdown summary, please summarize anything notable that is new to you compared to our past work together."
+AI_MODE_INTRO = "Hi, please consider this markdown file as the latest iteration of my application. The file structure and code contained within should be considered the most updated version of all files and file structures. Once you read this markdown summary, please summarize anything notable that is new to you compared to our past work together."
 SNAPSHOTS_DIR = "./snapshots/captures/"
-PY_SNAPSHOTS_DIR = os.path.join(SNAPSHOTS_DIR, "py")
-IGNORE_PATTERNS = ["package", ".idea","node_modules",".git","pycache",'captures','requirements']
+IGNORE_PATTERNS = ["package", ".idea","node_modules",".git","pycache","captures","requirements", "yarn", "webpack", "eslintrc",".next"]
+FOCUS_PATTERNS = []
 
 def generate_md_file():
     """
@@ -25,12 +25,9 @@ def generate_md_file():
     if not os.path.exists(SNAPSHOTS_DIR):
         os.makedirs(SNAPSHOTS_DIR)
 
-    if not os.path.exists(PY_SNAPSHOTS_DIR):
-        os.makedirs(PY_SNAPSHOTS_DIR)
-
     # Get the directory structure
     hierarchy = build_hierarchy('.')
-    hierarchy = filter_hierarchy(hierarchy,IGNORE_PATTERNS)
+    hierarchy = filter_hierarchy(hierarchy, ignore_patterns=IGNORE_PATTERNS, focus_patterns=FOCUS_PATTERNS)
 
     # Print the directory structure
     hierarchy_output = print_hierarchy(hierarchy)
@@ -66,3 +63,4 @@ def generate_md_file():
 
 if __name__ == "__main__":
     generate_md_file()
+

@@ -33,3 +33,10 @@ Snapshots.py includes the following features:
 * Prependable message to explain to the AI the nature of the markdown document and how to interpret it.
 
 These features can be customized in the `snapshot.py` file.
+
+## Support our work / Join the GBTI network!
+
+Support the GBTI network by becoming a member of our private community.
+
+[Become a supporter and join the GBTI Community](https://gbti.io)
+

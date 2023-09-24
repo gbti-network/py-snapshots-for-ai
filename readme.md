@@ -1,4 +1,4 @@
-# [Snapshots.py for AI](https://gbti.io/assets/snapshots-for-ai/)
+# [Snapshots.py (for AI)](https://gbti.io/assets/snapshots-for-ai/)
 
 Snapshots.py is a tool that allows you to quickly generate machine/AI-readable documentation that shows your project's current folder and file structure, as well as the updated contents of all the files, all inside a markdown file.
 

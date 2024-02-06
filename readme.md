@@ -6,13 +6,37 @@ Snapshots.py is a tool that allows you to quickly generate machine/AI-readable d
 
 ## Installation
 
-To use Snapshots.py, you'll need to have Python installed on your machine. If you don't have Python installed, you can download it from the [official Python website](https://www.python.org/downloads/).
+Integrate `Snapshots.py` into your project by following these steps:
 
-After installing Python, you need to install the required dependencies by running the following command in the terminal:
+### Step 1: Download the Package from GitHub
 
-`pip install -r requirements.txt`
+1. Visit the GitHub repository at [gbti-labs/py-snapshots-for-ai](https://github.com/gbti-labs/py-snapshots-for-ai/).
+2. Click on the green **Code** button, then select **Download ZIP** from the dropdown menu.
+3. Save the ZIP file to your desktop or another preferred location and extract its contents.
 
-This will install all the required packages listed in the `requirements.txt` file.
+### Step 2: Copy Required Files to Your Project
+
+From the extracted folder, copy the following files and folders into the base directory of your project application:
+
+- `snapshot.py`: The main script file for generating snapshots.
+- `snapshots/`: The directory intended for storing generated snapshot files.
+
+### Step 3: Install Required Dependencies
+
+Open your command line interface (CLI), navigate to your project's base directory, and install the required dependencies using the following commands:
+
+```sh
+pip install chardet==5.1.0
+pip install gitignore-parser==0.1.3
+pip install pyperclip==1.8.2
+pip install pytz==2022.7.1
+```
+
+This will ensure all necessary libraries are installed for `Snapshots.py` to operate correctly within your project.
+
+### Step 4: Verify Installation
+
+Ensure that `snapshot.py` is located in your project's base directory and that the `snapshots/` folder is present and correctly placed. You're now ready to utilize `Snapshots.py` within your project.
 
 ## Usage
 
@@ -34,9 +58,9 @@ Snapshots.py includes the following features:
 
 These features can be customized in the `snapshot.py` file.
 
-## Support our work / Join the GBTI network!
+## Follow GBTI for more
 
-Support the GBTI network by becoming a member of our private community.
+Thanks for reading! If you like our content, please consider following us!
 
-[Become a supporter and join the GBTI Community](https://gbti.io)
+[Twitter/X](https://twitter.com/gbtilabs) | [GitHub](https://github.com/gbti-labs) | [YouTube](https://www.youtube.com/channel/UCh4FjB6r4oWQW-QFiwqv-UA) | [Dev.to](https://dev.to/gbti) | [Daily.dev](https://dly.to/zfCriM6JfRF) | [Hashnode](https://gbti.hashnode.dev/) | [Blog / Discord](https://gbti.io)
 

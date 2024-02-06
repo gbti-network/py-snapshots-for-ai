@@ -1,3 +1,12 @@
+"""
+Script Name: snapshot.py
+Author: GBTI
+Contributors: @atwellpub, @ChatGPT-4, @ChatGPT-3.5
+Website: https://www.gbti.io
+Description: This python script creates a machine readable markdown file that describes your application. This can be used to feed updated snapshots of your application to ChatGPT, Grok, Llama, or any other LLM.
+License: MIT License
+"""
+
 import os
 import datetime
 import pyperclip

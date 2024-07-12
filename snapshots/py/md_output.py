@@ -36,7 +36,6 @@ def add_file_blocks(hierarchy, md_file, base_dir):
 
 
 
-
 def add_file_to_md(file_path, md_file):
     """
     Given a file path and an open markdown file object, this function reads the contents of the file
@@ -63,16 +62,17 @@ def add_file_to_md(file_path, md_file):
             add_file_to_md(os.path.join(file_path, item), md_file)
     # If the item is a file, write the file contents as a code block
     elif os.path.isfile(file_path):
-        # Detect file encoding
-        with open(file_path, 'rb') as f:
-            raw_data = f.read()
-            encoding = chardet.detect(raw_data)['encoding']
+        # Specify the encoding (e.g., utf-8) here
+        encoding = 'utf-8'
 
-        # Read file with detected encoding
-        with open(file_path, 'r', encoding=encoding) as f:
-            contents = f.read()
+        try:
+            with open(file_path, 'r', encoding=encoding) as f:
+                contents = f.read()
 
-            md_file.write("```\n")
-            md_file.write(contents)
-            md_file.write("\n```\n")
+                md_file.write("```\n")
+                md_file.write(contents)
+                md_file.write("\n```\n")
+        except UnicodeDecodeError as e:
+            print(f"Error decoding file '{file_path}': {str(e)}")
+
 
